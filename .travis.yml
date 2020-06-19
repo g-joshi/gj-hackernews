@@ -7,11 +7,10 @@ cache: npm
 
 install:
   - npm ci
-  - npm run build
 
 deploy:
   provider: heroku
   api_key: 
-    secure: 0c483dca-d763-40d8-ab45-65c81f8b1cd2
+    secure: d3e90a84-ca42-478e-9b44-7cb63887312a
   run:
     npm run ssr
