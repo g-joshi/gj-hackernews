@@ -83,8 +83,8 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "start": "node scripts/start.js",
-    "ssr": "cross-env NODE_ENV=development node ./server",
+    "start-dev": "node scripts/start.js",
+    "start": "cross-env NODE_ENV=development node ./server",
     "dev": "NODE_ENV=development nodemon ./server"
   },
   "eslintConfig": {
