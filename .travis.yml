@@ -9,9 +9,9 @@ install:
   - npm ci
   - npm run build
 
-# deploy:
-#   provider: pages
-#   skip-cleanup: true
-#   github-token: $GITHUB_TOKEN
-#   on:
-#     branch: master
+deploy:
+  provider: heroku
+  api_key: 
+    secure: 4da32a49-413f-4929-a5df-54ba6f05b91f
+  run:
+    npm run ssr
