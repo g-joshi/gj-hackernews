@@ -12,6 +12,6 @@ install:
 deploy:
   provider: heroku
   api_key: 
-    secure: 4da32a49-413f-4929-a5df-54ba6f05b91f
+    secure: 0c483dca-d763-40d8-ab45-65c81f8b1cd2
   run:
     npm run ssr
