@@ -12,5 +12,6 @@ install:
 deploy:
   provider: heroku
   api_key: d3e90a84-ca42-478e-9b44-7cb63887312a
+  app: gj-hacker-news
   run:
     npm run ssr
