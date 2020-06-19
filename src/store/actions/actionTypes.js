@@ -1,0 +1,7 @@
+export const FETCH_NEWS = 'FETCH_NEWS';
+export const FETCH_NEWS_SUCCESS = 'FETCH_NEWS_SUCCESS';
+export const FETCH_NEWS_ERROR = 'FETCH_NEWS_ERROR';
+export const HIDE_NEWS = 'HIDE_NEWS';
+export const UPVOTE_NEWS = 'UPVOTE_NEWS';
+export const NEWS_ITEM_UPDATED = 'NEWS_ITEM_UPDATED';
+export const UPDATE_SESSION = 'UPDATE_SESSION';

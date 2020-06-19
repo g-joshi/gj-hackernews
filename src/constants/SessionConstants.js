@@ -1,0 +1,1 @@
+export const PERSISTENT_STATE = 'PERSISTENT_STATE';
