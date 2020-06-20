@@ -30,13 +30,9 @@
     "date-fns": "^2.14.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
-    "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-loader": "3.0.3",
-    "eslint-plugin-flowtype": "4.6.0",
-    "eslint-plugin-import": "2.20.1",
     "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "^1.6.1",
     "express": "^4.17.1",
     "file-loader": "4.3.0",
@@ -85,7 +81,8 @@
     "build": "node scripts/build.js",
     "start-dev": "node scripts/start.js",
     "start": "cross-env NODE_ENV=development node ./server",
-    "dev": "cross-env NODE_ENV=development nodemon ./server"
+    "dev": "cross-env NODE_ENV=development nodemon ./server",
+    "lint:js": "eslint '**/*.{js,jsx}' --config .eslintrc --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -153,6 +150,18 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-compat": "^3.7.0",
+    "eslint-plugin-extra-rules": "0.0.0-development",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.13.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "nodemon": "^2.0.4"
   }
 }

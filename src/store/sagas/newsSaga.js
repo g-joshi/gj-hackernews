@@ -13,9 +13,9 @@ const getNewsFromAPI = (pageId) => {
 export function* fetchNewsSaga(action) {
     try {
         const { data } = yield getNewsFromAPI(action.payload.pageId);
-        let sessionData = (typeof window !== 'undefined') ? getSessionData() : [];
-        let updatedData = data.hits.map(item => {
-            let targetItem = sessionData.find(v => (v.objectID === item.objectID));
+        const sessionData = (typeof window !== 'undefined') ? getSessionData() : [];
+        const updatedData = data.hits.map(item => {
+            const targetItem = sessionData.find(v => (v.objectID === item.objectID));
             return { ...item, ...targetItem };
         });
         yield put(newsSuccessAction(updatedData));
@@ -27,16 +27,16 @@ export function* fetchNewsSaga(action) {
 export function* upvoteNewsSaga(action) {
     const { newsList, newsItem } = { ...action.payload };
 
-    newsItem.points = newsItem.points + 1;
-    let updatedNewsList = newsList.map(item => {
+    newsItem.points += 1;
+    const updatedNewsList = newsList.map(item => {
         if (item.objectID === newsItem.objectID) {
             return {
                 ...item,
                 ...newsItem
             }
-        } else {
+        } 
             return item;
-        }
+        
     });
 
     yield put(updateSessionAction(newsItem));
@@ -47,15 +47,15 @@ export function* hideNewsSaga(action) {
     const { newsList, newsItem } = { ...action.payload };
 
     newsItem.isHidden = true;
-    let updatedNewsList = newsList.map(item => {
+    const updatedNewsList = newsList.map(item => {
         if (item.objectID === newsItem.objectID) {
             return {
                 ...item,
                 ...newsItem
             }
-        } else {
+        } 
             return item;
-        }
+        
     });
 
     yield put(updateSessionAction(newsItem));

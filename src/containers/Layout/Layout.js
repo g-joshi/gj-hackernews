@@ -16,12 +16,12 @@ const Layout = (props) => {
         return pageId;
     }
     return (
-        <LayoutStyle>
-            <ArticleList pageId={getPageId()}></ArticleList>
-            <Pagination pageId={getPageId()}></Pagination>
-            <Separator></Separator>
-            <LineCharts></LineCharts>
-        </LayoutStyle>
+      <LayoutStyle>
+        <ArticleList pageId={getPageId()} />
+        <Pagination pageId={getPageId()} />
+        <Separator />
+        <LineCharts />
+      </LayoutStyle>
     );
 }
 

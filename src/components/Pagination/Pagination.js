@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PaginationStyle from './Pagination.style';
 import { Link } from 'react-router-dom';
+import PaginationStyle from './Pagination.style';
 
 const Pagination = (props) => {
     if (!props.news) return null;
@@ -11,15 +11,16 @@ const Pagination = (props) => {
     const nextPageUrl = `/${currentPageId + 1}`;
 
     return (
-        <PaginationStyle>
-            {currentPageId >= 1 ?
-                <React.Fragment>
-                    <Link className="link" to={previousPageUrl}>Previous</Link>
-                    <span className="separator"> | </span>
-                </React.Fragment>
+      <PaginationStyle>
+        {currentPageId >= 1 ? (
+          <>
+            <Link className="link" to={previousPageUrl}>Previous</Link>
+            <span className="separator"> | </span>
+          </>
+              )
                 : null}
-            <Link className="link" to={nextPageUrl}>Next</Link>
-        </PaginationStyle>
+        <Link className="link" to={nextPageUrl}>Next</Link>
+      </PaginationStyle>
     );
 }
 

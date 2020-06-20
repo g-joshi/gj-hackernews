@@ -1,0 +1,11 @@
+dist/
+node_modules/
+docs/
+reports/
+.history/
+out/
+flow-typed/npm/
+src/
+_colors.scss
+_transition-time.scss
+_z-indexs.scss

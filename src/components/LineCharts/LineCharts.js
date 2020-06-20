@@ -22,23 +22,23 @@ const LineCharts = (props) => {
     });
 
     return (
-        <LineChartsStyle>
-            <ResponsiveContainer aspect={3}>
-                <LineChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis dataKey="uv" />
-                    <Tooltip />
-                    <Line
-                        connectNulls={true}
-                        dataKey="uv"
-                        stroke="#8884d8"
-                        fill="#8884d8"
-                        activeDot={{ r: 8 }}
-                    />
-                </LineChart>
-            </ResponsiveContainer>
-        </LineChartsStyle>
+      <LineChartsStyle>
+        <ResponsiveContainer aspect={3}>
+          <LineChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis dataKey="uv" />
+            <Tooltip />
+            <Line
+              connectNulls
+              dataKey="uv"
+              stroke="#8884d8"
+              fill="#8884d8"
+              activeDot={{ r: 8 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </LineChartsStyle>
     );
 }
 

@@ -1,11 +1,9 @@
 import React from 'react';
-import UpVoteStyles from '../UpVote/UpVote.styles';
+import UpVoteStyles from "./UpVote.styles";
 
 const UpVote = (props) => {
     return (
-        <UpVoteStyles>
-            
-        </UpVoteStyles>
+      <UpVoteStyles />
     );
 }
 

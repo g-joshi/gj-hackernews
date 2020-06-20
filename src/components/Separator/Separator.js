@@ -3,7 +3,7 @@ import SeparatorStyle from './Separator.style';
 
 const Separator = (props) => {
     return (
-        <SeparatorStyle />
+      <SeparatorStyle />
     );
 }
 
