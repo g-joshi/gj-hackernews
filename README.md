@@ -3,7 +3,7 @@
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 * Then the project was ejected and customized for SSR
 * All calls to server and rendered by express using react-dom/server and react-router-config and then the generated markup (populated with required API data) is returned from server
-* Localstore is being used as a persitent data store.
+* Localstorage is being used as a persitent data store.
 
 ## TECH STACK:
 * React, React DOM and React Router
