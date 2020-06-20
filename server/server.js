@@ -2,7 +2,7 @@ import React from "react";
 import express from "express";
 import path from "path";
 import Routes from '../src/routes/routes.config';
-import { renderToNodeStream } from "react-dom/server";
+import { renderToString } from "react-dom/server";
 import { renderRoutes } from 'react-router-config';
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -26,7 +26,7 @@ app.get('/:pageId', (req, res) => {
     sagaMiddleware.run(function* () {
         yield fetchNewsSaga({ payload: { pageId: req.params.pageId } })
     }).toPromise().then(_ => {
-        const content = renderToNodeStream(
+        const content = renderToString(
             <Provider store={store}>
                 <StaticRouter location={req.path} context={{}}>
                     <StyleSheetManager sheet={sheet.instance}>
