@@ -1,0 +1,15 @@
+{
+  "browsertime": {
+    "iterations": 1,
+    "browser": "chrome"
+  },
+  "plugins": {
+    "list": true,
+    "remove": ["html", "gpsi", "WebPageTest", "tracestorer", "thirdparty"]
+  },
+  "crawler": {
+    "depth": 1,
+    "maxPages": 1
+  },
+  "utc": true
+}

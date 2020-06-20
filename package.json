@@ -82,7 +82,8 @@
     "start-dev": "node scripts/start.js",
     "start": "cross-env NODE_ENV=development node ./server",
     "dev": "cross-env NODE_ENV=development nodemon ./server",
-    "lint:js": "eslint '**/*.{js,jsx}' --config .eslintrc --fix"
+    "lint:js": "e slint '**/*.{js,jsx}' --config .eslintrc --fix",
+    "perf": "docker run --shm-size=1g --rm -v \"$(pwd)\":/sitespeed.io sitespeedio/sitespeed.io ./sitespeedio/urls.txt --budget.configPath ./sitespeedio/budget.config.json"
   },
   "eslintConfig": {
     "extends": "react-app"
