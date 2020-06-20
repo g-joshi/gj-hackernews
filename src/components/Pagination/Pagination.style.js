@@ -6,11 +6,11 @@ const PaginationStyle = styled.div`
     padding: 10px;
 
     .separator {
-        color: #ff732e;
+        color: #ca4b0d;
     }
 
     .link {
-        color: #ff732e;
+        color: #ca4b0d;
     }
 `;
 

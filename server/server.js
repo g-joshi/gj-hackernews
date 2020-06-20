@@ -2,7 +2,7 @@ import React from "react";
 import express from "express";
 import path from "path";
 import Routes from '../src/routes/routes.config';
-import { renderToString } from "react-dom/server";
+import { renderToNodeStream } from "react-dom/server";
 import { renderRoutes } from 'react-router-config';
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -11,31 +11,39 @@ import createSageMiddleware from "redux-saga";
 import newsReducer from '../src/store/reducers/newsReducer';
 import { fetchNewsSaga } from '../src/store/sagas/newsSaga';
 import fs from 'fs';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
+const sheet = new ServerStyleSheet();
+var compression = require('compression')
 const app = express();
 const sagaMiddleware = createSageMiddleware();
 const store = createStore(newsReducer, applyMiddleware(sagaMiddleware));
 
-app.use('/static', express.static(path.resolve(__dirname, '../', 'build/static')));
+app.use(compression());
+app.use(express.static(path.resolve(__dirname, '../', 'build')));
 
 app.get('/:pageId', (req, res) => {
     sagaMiddleware.run(function* () {
         yield fetchNewsSaga({ payload: { pageId: req.params.pageId } })
     }).toPromise().then(_ => {
-        const content = renderToString(
+        const content = renderToNodeStream(
             <Provider store={store}>
                 <StaticRouter location={req.path} context={{}}>
-                    {renderRoutes(Routes)}
+                    <StyleSheetManager sheet={sheet.instance}>
+                        {renderRoutes(Routes)}
+                    </StyleSheetManager>
                 </StaticRouter>
             </Provider>
         );
+
+        const styleTags = sheet.getStyleTags();
 
         fs.readFile(path.resolve('build/index.html'), 'utf-8', (error, data) => {
             if (error) { res.send('something went wrong'); }
 
             data = data.replace(
                 '<div id="root"></div>',
-                `<div id="root">${content}</div><script type="text/javascript" charset="utf-8">window.__INITIAL_STATE__ = ${JSON.stringify(store.getState())};</script>`
+                `${styleTags}<div id="root">${content}</div><script type="text/javascript" charset="utf-8">window.__INITIAL_STATE__ = ${JSON.stringify(store.getState())};</script>`
             );
             res.send(data);
         });

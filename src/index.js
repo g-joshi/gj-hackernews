@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import './index.css';
 import { renderRoutes } from 'react-router-config';
 import Routes from './routes/routes.config';
-// import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { watchFetchNewsSaga } from './store/sagas';
