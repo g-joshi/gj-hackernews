@@ -1,7 +1,7 @@
 import React from 'react';
 import SeparatorStyle from './Separator.style';
 
-const Separator = (props) => {
+const Separator = () => {
     return (
       <SeparatorStyle />
     );

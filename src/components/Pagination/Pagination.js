@@ -6,7 +6,7 @@ import PaginationStyle from './Pagination.style';
 const Pagination = (props) => {
     if (!props.news) return null;
 
-    const currentPageId = props.pageId ? parseInt(props.pageId) : 0;
+    const currentPageId = props.pageId ? parseInt(props.pageId, 2) : 0;
     const previousPageUrl = currentPageId > 1 ? `/${currentPageId - 1}` : `/`;
     const nextPageUrl = `/${currentPageId + 1}`;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import LayoutStyle from './Layout.style';
-import ArticleList from '../../components/ArticleList/ArticleList';
+import ArticleLists from '../../components/ArticleList/ArticleList';
 import Separator from '../../components/Separator/Separator';
 import LineCharts from '../../components/LineCharts/LineCharts';
 import Pagination from '../../components/Pagination/Pagination';
@@ -17,7 +17,7 @@ const Layout = (props) => {
     }
     return (
       <LayoutStyle>
-        <ArticleList pageId={getPageId()} />
+        <ArticleLists pageId={getPageId()} />
         <Pagination pageId={getPageId()} />
         <Separator />
         <LineCharts />
