@@ -2,6 +2,15 @@
   "name": "gj-hacker-news-ssr",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "start-dev": "node scripts/start.js",
+    "start": "cross-env NODE_ENV=development node ./server",
+    "dev": "cross-env NODE_ENV=development nodemon ./server",
+    "lint:js": "eslint '**/*.{js,jsx}' --config .eslintrc --fix",
+    "test": "jest --config ./jest.config.js",
+    "test:watch": "npm test -- --watch"
+  },
   "dependencies": {
     "@babel/core": "7.9.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
@@ -77,13 +86,6 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "4.3.1"
   },
-  "scripts": {
-    "build": "node scripts/build.js",
-    "start-dev": "node scripts/start.js",
-    "start": "cross-env NODE_ENV=development node ./server",
-    "dev": "cross-env NODE_ENV=development nodemon ./server",
-    "lint:js": "eslint '**/*.{js,jsx}' --config .eslintrc --fix"
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -99,57 +101,9 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "setupFiles": [
-      "react-app-polyfill/jsdom"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.js"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jest-environment-jsdom-fourteen",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "modulePaths": [],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ],
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
-  },
   "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",

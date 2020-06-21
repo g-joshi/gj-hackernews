@@ -1,22 +1,51 @@
 module.exports = {
-  roots: ['<rootDir>'],
-  setupFiles: ['<rootDir>/config/jest-config/jest.setup.js'],
-  moduleNameMapper: {
-    '\\.(css|less|sass|scss)$': '<rootDir>/config/jest-config/style-mock.js',
-    '^scroll-to$': '<rootDir>/config/jest-config/__mock__/react-scroll-to-component',
-  },
-  testRegex: '_tests_/.*(test)\\.js$',
-  moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
-  verbose: true,
-  coverageDirectory: '<rootDir>/coverage/',
-  transformIgnorePatterns: ['node_modules/'],
-  snapshotSerializers: ['enzyme-to-json/serializer'],
-  collectCoverage: true,
-  collectCoverageFrom: [
-    '<rootDir>/packages/react-apps/**/src/components/*{organisms,atoms,molecules}/**/!(*index|*.story).{js,jsx}',
-    '<rootDir>/packages/shared/scripts/utils/src/*.{js,jsx}',
-    '!**/node_modules/**',
-    '!**/vendor/**',
+  "roots": [
+    "<rootDir>/src"
   ],
-  setupFilesAfterEnv: ['<rootDir>/config/jest-config/__mock__/globalDefinitions.js'],
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!src/**/*.d.ts"
+  ],
+  "setupFiles": [
+    '<rootDir>/jest.setup.js',
+    "react-app-polyfill/jsdom"
+  ],
+  "setupFilesAfterEnv": [
+    "<rootDir>/src/setupTests.js"
+  ],
+  "testMatch": [
+    "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+    "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+  ],
+  "testEnvironment": "jest-environment-jsdom-fourteen",
+  "transform": {
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+    "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+    "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+  },
+  "transformIgnorePatterns": [
+    "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+    "^.+\\.module\\.(css|sass|scss)$"
+  ],
+  "modulePaths": [],
+  "moduleNameMapper": {
+    "^react-native$": "react-native-web",
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+  },
+  "moduleFileExtensions": [
+    "web.js",
+    "js",
+    "web.ts",
+    "ts",
+    "web.tsx",
+    "tsx",
+    "json",
+    "web.jsx",
+    "jsx",
+    "node"
+  ],
+  "watchPlugins": [
+    "jest-watch-typeahead/filename",
+    "jest-watch-typeahead/testname"
+  ]
 };
